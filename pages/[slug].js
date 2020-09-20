@@ -1,34 +1,20 @@
-import { request, gql } from "graphql-request"
+import { requestPage, requestAllPageSlugs } from "../lib/api"
 
 const Page = ({ page }) => {
   return <h1>{page?.title}</h1>
 }
+// export const getServerSideProps = async ({ params }) => {
+//   const data = await requestPage(params.slug)
 
-const API_URL = "https://starter.gatsby-wp.com/graphql"
-
-const GET_PAGE = gql`
-  query pageBySlug($id: ID!) {
-    page(id: $id, idType: URI) {
-      title
-      slug
-      databaseId
-      content
-    }
-  }
-`
-
-const ALL_PAGES_SLUGS = gql`
-  query allPagesSlugs {
-    pages {
-      nodes {
-        slug
-      }
-    }
-  }
-`
+//   return {
+//     props: {
+//       page: data.page,
+//     },
+//   }
+// }
 
 export const getStaticProps = async ({ params }) => {
-  const data = await request(API_URL, GET_PAGE, { id: params.slug })
+  const data = await requestPage(params.slug)
 
   return {
     props: {
@@ -38,8 +24,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const allPages = await request(API_URL, ALL_PAGES_SLUGS)
-
+  const allPages = await requestAllPageSlugs()
   return {
     paths: allPages?.nodes?.map((page) => `/${page?.slug}`) || [],
     fallback: true,
