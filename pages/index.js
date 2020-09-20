@@ -1,22 +1,19 @@
 import Head from "next/head"
 import { requestAllPosts } from "../lib/api"
 import Link from "next/link"
-// import { useQuery, usePaginatedQuery } from "react-query"
-// import { ReactQueryDevtools } from "react-query-devtools"
+import { useQuery, usePaginatedQuery } from "react-query"
+import { ReactQueryDevtools } from "react-query-devtools"
 
 const Blog = ({ posts }) => {
-  // const [page, setPage] = React.useState(1)
-  // const { resolvedData, latestData } = usePaginatedQuery(
-  //   ["posts", page],
-  //   requestAllPosts(),
-  //   { initialData: posts, staleTime: 0 }
-  // )
-  // console.log("latestData", latestData)
+  const { data } = useQuery(["posts"], requestAllPosts(), {
+    initialData: posts,
+    staleTime: 0,
+  })
 
   return (
     <>
       <h1>Blog</h1>
-      {posts?.map((post) => {
+      {data?.map((post) => {
         const { title, excerpt, slug } = post
         return (
           <article key={slug}>
@@ -27,6 +24,7 @@ const Blog = ({ posts }) => {
           </article>
         )
       })}
+      <ReactQueryDevtools />
     </>
   )
 }
