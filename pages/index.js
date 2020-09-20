@@ -1,9 +1,18 @@
 import Head from "next/head"
 import { requestAllPosts } from "../lib/api"
 import Link from "next/link"
+// import { useQuery, usePaginatedQuery } from "react-query"
+// import { ReactQueryDevtools } from "react-query-devtools"
 
 const Blog = ({ posts }) => {
-  console.log("posts", posts)
+  // const [page, setPage] = React.useState(1)
+  // const { resolvedData, latestData } = usePaginatedQuery(
+  //   ["posts", page],
+  //   requestAllPosts(),
+  //   { initialData: posts, staleTime: 0 }
+  // )
+  // console.log("latestData", latestData)
+
   return (
     <>
       <h1>Blog</h1>
@@ -29,6 +38,7 @@ export const getStaticProps = async () => {
     props: {
       posts: data.posts.nodes,
     },
+    revalidate: 1,
   }
 }
 

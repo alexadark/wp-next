@@ -20,6 +20,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       page: data.page,
     },
+    revalidate: 1,
   }
 }
 
