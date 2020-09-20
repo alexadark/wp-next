@@ -5,14 +5,16 @@ import { useQuery, usePaginatedQuery } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
 
 const Blog = ({ posts }) => {
-  const { data } = useQuery(["posts"], requestAllPosts(), {
+  const { data, isFetching } = useQuery(["posts"], requestAllPosts(), {
     initialData: posts,
-    staleTime: 0,
+    refetchInterval: 1000,
+    // refetchIntervalInBackground: true,
   })
 
   return (
     <>
       <h1>Blog</h1>
+      {/* {isFetching && "...fetching"} */}
       {data?.map((post) => {
         const { title, excerpt, slug } = post
         return (
@@ -39,5 +41,15 @@ export const getStaticProps = async () => {
     revalidate: 1,
   }
 }
+
+// export const getServerSideProps = async () => {
+//   const data = await requestAllPosts()
+
+//   return {
+//     props: {
+//       posts: data.posts.nodes,
+//     },
+//   }
+// }
 
 export default Blog
