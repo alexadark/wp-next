@@ -28,7 +28,7 @@ const ALL_PAGES_SLUGS = gql`
 `
 
 export const getStaticProps = async ({ params }) => {
-  const data = await request(API_URL, GET_PAGE, { slug: params.slug })
+  const data = await request(API_URL, GET_PAGE, { id: params.slug })
 
   return {
     props: {
