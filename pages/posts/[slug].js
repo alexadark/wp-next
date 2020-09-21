@@ -1,7 +1,12 @@
 import { requestPost, requestAllPostSlugs } from "../../lib/api"
+import { PostEntry } from "../../components/post"
 
-const Post = ({ post }) => {
-  return <h1>{post?.title}</h1>
+const Post = ({ post = {} }) => {
+  return (
+    <>
+      <PostEntry location="single" post={post} />
+    </>
+  )
 }
 
 // export const getServerSideProps = async ({ params }) => {
