@@ -8,7 +8,6 @@ const Blog = ({ posts }) => {
   const { data, isFetching } = useQuery(["posts"], requestAllPosts(), {
     initialData: posts,
     refetchInterval: 1000,
-    // refetchIntervalInBackground: true,
   })
 
   return (
