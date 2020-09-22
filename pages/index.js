@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { requestAllPosts } from "../lib/api"
 import Link from "next/link"
-import { useQuery, usePaginatedQuery } from "react-query"
+import { useQuery } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
 
 const Blog = ({ posts }) => {
@@ -20,7 +20,9 @@ const Blog = ({ posts }) => {
         return (
           <article key={slug}>
             <h2>
-              <Link href={`posts/${slug}`}>{title}</Link>
+              <Link href={`posts/${slug}`}>
+                <a>{title}</a>
+              </Link>
             </h2>
             <div dangerouslySetInnerHTML={{ __html: excerpt }} />
           </article>

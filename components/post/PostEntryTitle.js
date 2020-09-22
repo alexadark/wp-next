@@ -16,10 +16,9 @@ export const PostEntryTitle = ({ post = {}, location, ...props }) => {
       ) : (
         // eslint-disable-next-line react/jsx-pascal-case
         <Styled.h1 as="h2" className="entry-title" {...props}>
-          <Link
-            href={`posts/${slug}`}
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
+          <Link href={`posts/${slug}`}>
+            <a dangerouslySetInnerHTML={{ __html: title }} />
+          </Link>
         </Styled.h1>
       )}
     </>
