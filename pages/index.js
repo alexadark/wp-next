@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useQuery } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts = {} }) => {
   const { data, isFetching, isLoading } = useQuery(["posts"], requestAllPosts, {
     initialData: posts,
     refetchInterval: 1000,
