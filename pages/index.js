@@ -16,7 +16,7 @@ const Blog = ({ posts }) => {
     <>
       <h1>Blog</h1>
       {/* {isFetching && "...fetching"} */}
-      {data.posts.nodes?.map((post) => {
+      {data?.posts?.nodes?.map((post) => {
         const { title, excerpt, slug } = post
         return (
           <article key={slug}>
