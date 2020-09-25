@@ -1,10 +1,18 @@
 import { requestPost, requestAllPostSlugs } from "../../lib/api"
-import { PostEntry } from "../../components/post"
+import { PostEntry, PostEntryInfo } from "../../components/post"
+import { useQuery } from "react-query"
+import { ReactQueryDevtools } from "react-query-devtools"
 
-const Post = ({ post = {} }) => {
+const Post = ({ post = {}, slug }) => {
+  const { data } = useQuery(["post", slug], () => requestPost(slug), {
+    initialData: post,
+    refetchInterval: 1000,
+  })
+
   return (
     <>
-      <PostEntry location="single" post={post} />
+      <PostEntry location="single" post={data.post} />
+      <ReactQueryDevtools />
     </>
   )
 }
@@ -25,6 +33,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       post: data.post,
+      slug: params.slug,
     },
     revalidate: 1,
   }

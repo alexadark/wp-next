@@ -7,15 +7,13 @@ import { ReactQueryDevtools } from "react-query-devtools"
 const Blog = ({ posts }) => {
   const { data, isFetching, isLoading } = useQuery(["posts"], requestAllPosts, {
     initialData: posts,
-    initialStale: true,
     refetchInterval: 1000,
-    // refetchIntervalInBackground: true,
   })
 
   return (
     <>
       <h1>Blog</h1>
-      {/* {isFetching && "...fetching"} */}
+
       {data?.posts?.nodes?.map((post) => {
         const { title, excerpt, slug } = post
         return (
