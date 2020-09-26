@@ -9,7 +9,8 @@ export const PostEntryInfo = ({ post = {}, ...props }) => {
       sx={{ variant: `text.info` }}
       {...props}
     >
-      <span>Posted on:</span> <Date post={post} /> by <Author post={post} />
+      <span>Posted on:</span> <Date date={post.date} /> by{" "}
+      <Author post={post} />
     </div>
   )
 }
