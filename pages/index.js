@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "react-query-devtools"
 const Blog = ({ posts = {} }) => {
   const { data, isFetching, isLoading } = useQuery(["posts"], requestAllPosts, {
     initialData: posts,
-    // refetchInterval: 1000,
+    refetchInterval: 1000,
   })
   console.log("posts", posts.posts.nodes)
 

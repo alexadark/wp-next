@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "react-query-devtools"
 const Page = ({ page = {}, slug }) => {
   const { data } = useQuery(["page", slug], () => requestPage(slug), {
     initialData: page,
-    // refetchInterval: 1000,
+    refetchInterval: 1000,
   })
   return (
     <>

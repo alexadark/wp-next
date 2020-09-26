@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "react-query-devtools"
 const Post = ({ post = {}, slug }) => {
   const { data } = useQuery(["post", slug], () => requestPost(slug), {
     initialData: post,
-    // refetchInterval: 1000,
+    refetchInterval: 1000,
   })
 
   return (
