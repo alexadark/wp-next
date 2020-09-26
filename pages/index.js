@@ -3,10 +3,9 @@ import { requestAllPosts } from "../lib/api"
 import Link from "next/link"
 import { useQuery } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
-// import useSWR from 'swr'
 
 const Blog = ({ posts = {} }) => {
-  const { data, isFetching, isLoading } = useQuery(["posts"], requestAllPosts, {
+  const { data } = useQuery(["posts"], requestAllPosts, {
     initialData: posts,
     // refetchInterval: 1000,
   })
@@ -44,15 +43,5 @@ export const getStaticProps = async () => {
     revalidate: 1,
   }
 }
-
-// export const getServerSideProps = async () => {
-//   const data = await requestAllPosts()
-
-//   return {
-//     props: {
-//       posts: data.posts.nodes,
-//     },
-//   }
-// }
 
 export default Blog

@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui"
 import {
   PostEntryTitle,
-  // PostEntryMedia,
+  PostEntryMedia,
   PostEntryContent,
   // PostEntryMeta,
   PostEntryInfo,
@@ -23,7 +23,7 @@ export const PostEntry = ({ post = {}, location, ...props }) => {
       }}
       {...props}
     >
-      {/* <PostEntryMedia location={location} post={post} className="entry-media" /> */}
+      <PostEntryMedia location={location} post={post} className="entry-media" />
 
       <div className={`content`}>
         <PostEntryTitle
