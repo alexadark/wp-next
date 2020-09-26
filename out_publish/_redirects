@@ -1,0 +1,6 @@
+# Next-on-Netlify Redirects
+/api/hello  /.netlify/functions/next_api_hello  200
+/posts/:slug  /.netlify/functions/next_posts_slug  200
+/_next/data/ClmBFHdp9HtXBaUoc_2PV/posts/:slug.json  /.netlify/functions/next_posts_slug  200
+/:slug  /.netlify/functions/next_slug  200
+/_next/data/ClmBFHdp9HtXBaUoc_2PV/:slug.json  /.netlify/functions/next_slug  200
