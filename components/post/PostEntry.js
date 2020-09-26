@@ -6,7 +6,7 @@ import {
   PostEntryContent,
   PostEntryMeta,
   PostEntryInfo,
-  // ReadMoreButton,
+  ReadMoreButton,
   // PrevNextPostNavigation,
 } from "./index"
 
@@ -37,7 +37,7 @@ export const PostEntry = ({ post = {}, location, ...props }) => {
 
         <div className="entry-footer" sx={{ mt: `xl` }}>
           <PostEntryMeta className="entry-meta" post={post} />
-          {/* <ReadMoreButton location={location} post={post} /> */}
+          <ReadMoreButton location={location} post={post} />
         </div>
         {/* {location === 'single' && (
             <>

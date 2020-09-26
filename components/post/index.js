@@ -7,7 +7,7 @@ export * from "./PostEntryMedia"
 export * from "./PostEntryInfo"
 export * from "./PostEntryMeta"
 export * from "./PostEntryTitle"
-// export * from './ReadMoreButton'
+export * from "./ReadMoreButton"
 export * from "./Tags"
 export * from "./TaxonomyItem"
 // export * from './PrevNextPostNavigation'

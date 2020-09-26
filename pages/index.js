@@ -2,6 +2,7 @@ import Head from "next/head"
 import { requestAllPosts } from "../lib/api"
 import Link from "next/link"
 import { useQuery } from "react-query"
+import { PostEntry } from "../components"
 import { ReactQueryDevtools } from "react-query-devtools"
 
 const Blog = ({ posts = {} }) => {
@@ -13,21 +14,9 @@ const Blog = ({ posts = {} }) => {
 
   return (
     <>
-      <h1>Blog</h1>
-
-      {data?.posts?.nodes?.map((post) => {
-        const { title, excerpt, slug } = post
-        return (
-          <article key={slug}>
-            <h2>
-              <Link href={`posts/${slug}`}>
-                <a>{title}</a>
-              </Link>
-            </h2>
-            <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-          </article>
-        )
-      })}
+      {data?.posts?.nodes?.map((post) => (
+        <PostEntry key={post.slug} post={post} />
+      ))}
       <ReactQueryDevtools />
     </>
   )

@@ -1,5 +1,5 @@
 import { requestPost, requestAllPostSlugs } from "../../lib/api"
-import { PostEntry, PostEntryInfo } from "../../components/post"
+import { PostEntry } from "../../components/post"
 import { useQuery } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
 
@@ -16,16 +16,6 @@ const Post = ({ post = {}, slug }) => {
     </>
   )
 }
-
-// export const getServerSideProps = async ({ params }) => {
-//   const data = await requestPost(params.slug)
-
-//   return {
-//     props: {
-//       post: data.post,
-//     },
-//   }
-// }
 
 export const getStaticProps = async ({ params }) => {
   const data = await requestPost(params.slug)

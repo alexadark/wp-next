@@ -14,15 +14,6 @@ const Page = ({ page = {}, slug }) => {
     </>
   )
 }
-// export const getServerSideProps = async ({ params }) => {
-//   const data = await requestPage(params.slug)
-
-//   return {
-//     props: {
-//       page: data.page,
-//     },
-//   }
-// }
 
 export const getStaticProps = async ({ params }) => {
   const data = await requestPage(params.slug)
