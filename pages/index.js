@@ -3,7 +3,6 @@ import { requestAllPosts } from "../lib/api"
 import Link from "next/link"
 import { useQuery } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
-// import useSWR from 'swr'
 
 const Blog = ({ posts = {} }) => {
   const { data, isFetching, isLoading } = useQuery(["posts"], requestAllPosts, {
