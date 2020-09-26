@@ -10,7 +10,7 @@ const Blog = ({ posts = {} }) => {
     initialData: posts,
     // refetchInterval: 1000,
   })
-  console.log("posts", posts)
+  console.log("posts", posts.posts.nodes)
 
   return (
     <>
@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      posts: data.posts.nodes,
+      posts: data,
     },
     revalidate: 1,
   }
