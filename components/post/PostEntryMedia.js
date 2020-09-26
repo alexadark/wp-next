@@ -6,8 +6,8 @@ const WithLink = ({ post, location, children }) =>
   location === "single" ? (
     children
   ) : (
-    <Link to={`/posts/${post.url}`} aria-label="View the entire post">
-      {children}
+    <Link href={`/posts/${post.url}`}>
+      <a aria-label="View the entire post">{children}</a>
     </Link>
   )
 

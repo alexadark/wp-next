@@ -4,7 +4,7 @@ import {
   PostEntryTitle,
   PostEntryMedia,
   PostEntryContent,
-  // PostEntryMeta,
+  PostEntryMeta,
   PostEntryInfo,
   // ReadMoreButton,
   // PrevNextPostNavigation,
@@ -35,10 +35,10 @@ export const PostEntry = ({ post = {}, location, ...props }) => {
 
         <PostEntryContent location={location} post={post} />
 
-        {/* <div className="entry-footer" sx={{ mt: `xl` }}>
-            <PostEntryMeta className="entry-meta" post={post} />
-            <ReadMoreButton location={location} post={post} />
-          </div> */}
+        <div className="entry-footer" sx={{ mt: `xl` }}>
+          <PostEntryMeta className="entry-meta" post={post} />
+          {/* <ReadMoreButton location={location} post={post} /> */}
+        </div>
         {/* {location === 'single' && (
             <>
               <SocialShare
