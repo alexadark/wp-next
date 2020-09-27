@@ -6,7 +6,7 @@ const WithLink = ({ post, location, children }) =>
   location === "single" ? (
     children
   ) : (
-    <Link href={`/posts/${post.url}`}>
+    <Link href={`/posts/${post.slug}`}>
       <a aria-label="View the entire post">{children}</a>
     </Link>
   )
@@ -19,7 +19,7 @@ export const PostEntryMedia = ({ post = {}, location, ...props }) => {
       {img && (
         <WithLink location={location} post={post}>
           <div className="entry-media" {...props}>
-            <img srcset={img.srcSet} src={img.sourceURL} alt={img.altText} />
+            <img srcset={img.srcSet} src={img.sourceUrl} alt={img.altText} />
           </div>
         </WithLink>
       )}

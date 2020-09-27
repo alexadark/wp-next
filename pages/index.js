@@ -1,6 +1,5 @@
 import Head from "next/head"
 import { requestAllPosts } from "../lib/api"
-import Link from "next/link"
 import { useQuery } from "react-query"
 import { PostEntry } from "../components"
 import { ReactQueryDevtools } from "react-query-devtools"
@@ -10,7 +9,6 @@ const Blog = ({ posts = {} }) => {
     initialData: posts,
     // refetchInterval: 1000,
   })
-  console.log("posts", posts.posts.nodes)
 
   return (
     <>
